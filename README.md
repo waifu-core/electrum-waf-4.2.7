@@ -1,7 +1,7 @@
 
 
 ```
-cd /usr/bin
+cd /opt
 wget https://github.com/waifu-core/electrum-waifu/releases/download/electrum-waifu/electrum-waifu.tar.gz
 tar -xvf electrum-waifu.tar.gz
 ```
