@@ -724,8 +724,8 @@ fog
 foil
 fold
 follow
-food
-foot
+bard
+bart
 force
 forest
 forget

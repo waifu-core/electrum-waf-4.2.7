@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Electrum-BIT - lightweight Bitcoin client
+# Electrum-WAF - lightweight Bitcoin client
 # Copyright (C) 2015 Thomas Voegtlin
 #
 # Permission is hereby granted, free of charge, to any person
@@ -37,13 +37,15 @@ from .invoices import Invoice
 from .keystore import bip44_derivation
 from .transaction import Transaction, TxOutpoint, tx_from_any, PartialTransaction, PartialTxOutput
 from .logging import Logger
-from .lnutil import LOCAL, REMOTE, FeeUpdate, UpdateAddHtlc, LocalConfig, RemoteConfig, ChannelType
-from .lnutil import ImportedChannelBackupStorage, OnchainChannelBackupStorage
-from .lnutil import ChannelConstraints, Outpoint, ShachainElement
+
+#from .lnutil import LOCAL, REMOTE, FeeUpdate, UpdateAddHtlc, LocalConfig, RemoteConfig, ChannelType
+#from .lnutil import ImportedChannelBackupStorage, OnchainChannelBackupStorage
+#from .lnutil import ChannelConstraints, Outpoint, ShachainElement
+
 from .json_db import StoredDict, JsonDB, locked, modifier
 from .plugin import run_hook, plugin_loaders
 from .paymentrequest import PaymentRequest
-from .submarine_swaps import SwapData
+#from .submarine_swaps import SwapData
 
 if TYPE_CHECKING:
     from .storage import WalletStorage
@@ -916,7 +918,7 @@ class WalletDB(JsonDB):
         if not seed_version:
             seed_version = OLD_SEED_VERSION if len(self.get('master_public_key','')) == 128 else NEW_SEED_VERSION
         if seed_version > FINAL_SEED_VERSION:
-            raise WalletFileException('This version of Electrum-BIT is too old to open this wallet.\n'
+            raise WalletFileException('This version of Electrum-WAF is too old to open this wallet.\n'
                                       '(highest supported storage version: {}, version of this file: {})'
                                       .format(FINAL_SEED_VERSION, seed_version))
         if seed_version==14 and self.get('seed_type') == 'segwit':
@@ -939,7 +941,7 @@ class WalletDB(JsonDB):
                 msg += "\nIt does not contain any keys, and can safely be removed."
             else:
                 # creation was complete if electrum was run from source
-                msg += "\nPlease open this file with Electrum-BIT 1.9.8, and move your coins to a new wallet."
+                msg += "\nPlease open this file with Electrum-WAF 1.9.8, and move your coins to a new wallet."
         raise WalletFileException(msg)
 
     @locked

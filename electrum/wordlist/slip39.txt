@@ -793,7 +793,7 @@ scramble
 screw
 script
 scroll
-seafood
+seabard
 season
 secret
 security

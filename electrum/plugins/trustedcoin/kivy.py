@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Electrum-BIT - Lightweight Bitcoin Client
+# Electrum - Lightweight Waifu Client
 # Copyright (C) 2015 Thomas Voegtlin
 #
 # Permission is hereby granted, free of charge, to any person

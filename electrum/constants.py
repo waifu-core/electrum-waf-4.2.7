@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Electrum-BIT - lightweight Bitcoin client
-# Copyright (C) 2018 The Electrum-BIT developers
+# Electrum - lightweight Waifu client
+# Copyright (C) 2018 The Electrum developers
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -53,7 +53,7 @@ class AbstractNet:
     ADDRTYPE_P2PKH: int
     ADDRTYPE_P2SH: int
     SEGWIT_HRP: str
-    BOLT11_HRP: str
+  #  BOLT11_HRP: str
     GENESIS: str
     BLOCK_HEIGHT_FIRST_LIGHTNING_CHANNELS: int = 0
     BIP44_COIN_TYPE: int
@@ -68,16 +68,17 @@ class AbstractNet:
         return bytes.fromhex(bitcoin.rev_hex(cls.GENESIS))
 
 
-class BitcoinMainnet(AbstractNet):
-
+class WaifuMainnet(AbstractNet):
     NET_NAME = "mainnet"
     TESTNET = False
     WIF_PREFIX = 0x9e
-    ADDRTYPE_P2PKH = 25
-    ADDRTYPE_P2SH = 22
-    SEGWIT_HRP = "bit"
+    ADDRTYPE_P2PKH = 73
+    ADDRTYPE_P2SH = 26
+    SEGWIT_HRP = "waf"
     BOLT11_HRP = SEGWIT_HRP
-    GENESIS = "00000caff19214512f927af2b7cead4b33a54c096e432a275628cb4cf8d4b73c"
+    GENESIS = "00000feab58d10f94336563d8ac6071e6afd4acaf994fef50e6d4f552aa15099"
+
+
     DEFAULT_PORTS = {'t': '50001', 's': '50002'}
     DEFAULT_SERVERS = read_json('servers.json', {})
     CHECKPOINTS = read_json('', [])
@@ -99,16 +100,16 @@ class BitcoinMainnet(AbstractNet):
         'p2wsh':       0x02aa7ed3,  # Zpub
     }
     XPUB_HEADERS_INV = inv_dict(XPUB_HEADERS)
-    BIP44_COIN_TYPE = 0
+
+    BIP44_COIN_TYPE = 1
     LN_REALM_BYTE = 0
-  #  LN_DNS_SEEDS = [
-  #      'nodes.lightning.directory.',
-  #      'lseed.bitnetstats.com.',
-  #      'lseed.darosior.ninja',
-  #  ]
+#    LN_DNS_SEEDS = [
+#'radioblockchain.info',
+#'radiopool.me',
+#]
 
 
-class BitcoinTestnet(AbstractNet):
+class WaifuTestnet(AbstractNet):
 
     NET_NAME = "testnet"
     TESTNET = True
@@ -146,7 +147,7 @@ class BitcoinTestnet(AbstractNet):
     ]
 
 
-class BitcoinRegtest(BitcoinTestnet):
+class WaifuRegtest(WaifuTestnet):
 
     NET_NAME = "regtest"
     SEGWIT_HRP = "bcrt"
@@ -157,7 +158,7 @@ class BitcoinRegtest(BitcoinTestnet):
     LN_DNS_SEEDS = []
 
 
-class BitcoinSimnet(BitcoinTestnet):
+class WaifuSimnet(WaifuTestnet):
 
     NET_NAME = "simnet"
     WIF_PREFIX = 0x64
@@ -171,7 +172,7 @@ class BitcoinSimnet(BitcoinTestnet):
     LN_DNS_SEEDS = []
 
 
-class BitcoinSignet(BitcoinTestnet):
+class WaifuSignet(WaifuTestnet):
 
     NET_NAME = "signet"
     BOLT11_HRP = "tbs"
@@ -184,24 +185,24 @@ class BitcoinSignet(BitcoinTestnet):
 NETS_LIST = tuple(all_subclasses(AbstractNet))
 
 # don't import net directly, import the module instead (so that net is singleton)
-net = BitcoinMainnet
+net = WaifuMainnet
 
 def set_signet():
     global net
-    net = BitcoinSignet
+    net = WaifuSignet
 
 def set_simnet():
     global net
-    net = BitcoinSimnet
+    net = WaifuSimnet
 
 def set_mainnet():
     global net
-    net = BitcoinMainnet
+    net = WaifuMainnet
 
 def set_testnet():
     global net
-    net = BitcoinTestnet
+    net = WaifuTestnet
 
 def set_regtest():
     global net
-    net = BitcoinRegtest
+    net = WaifuRegtest

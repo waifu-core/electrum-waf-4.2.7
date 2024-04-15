@@ -43,7 +43,7 @@ MSG_HW_STORAGE_ENCRYPTION = _("Set wallet file encryption.") + '\n'\
                           + _("Your wallet file does not contain secrets, mostly just metadata. ") \
                           + _("It also contains your master public key that allows watching your addresses.") + '\n\n'\
                           + _("Note: If you enable this setting, you will need your hardware device to open your wallet.")
-WIF_HELP_TEXT = (_('WIF keys are typed in Electrum-BIT, based on script type.') + '\n\n' +
+WIF_HELP_TEXT = (_('WIF keys are typed in Electrum-WAF, based on script type.') + '\n\n' +
                  _('A few examples') + ':\n' +
                  'p2pkh:KxZcY47uGp9a...       \t-> 1DckmggQM...\n' +
                  'p2wpkh-p2sh:KxZcY47uGp9a... \t-> 3NhNeZQXF...\n' +
@@ -53,7 +53,7 @@ MSG_PASSPHRASE_WARN_ISSUE4566 = _("Warning") + ": "\
                               + _("You have multiple consecutive whitespaces or leading/trailing "
                                   "whitespaces in your passphrase.") + " " \
                               + _("This is discouraged.") + " " \
-                              + _("Due to a bug, old versions of Electrum-BIT will NOT be creating the "
+                              + _("Due to a bug, old versions of Electrum-WAF will NOT be creating the "
                                   "same wallet as newer versions or other software.")
 
 
@@ -152,7 +152,7 @@ class InstallWizard(QDialog, MessageBoxMixin, BaseWizard):
     def __init__(self, config: 'SimpleConfig', app: QApplication, plugins: 'Plugins', *, gui_object: 'ElectrumGui'):
         QDialog.__init__(self, None)
         BaseWizard.__init__(self, config, plugins)
-        self.setWindowTitle('Electrum-BIT  -  ' + _('Install Wizard'))
+        self.setWindowTitle('Electrum-WAF  -  ' + _('Install Wizard'))
         self.app = app
         self.config = config
         self.gui_thread = gui_object.gui_thread
@@ -236,7 +236,7 @@ class InstallWizard(QDialog, MessageBoxMixin, BaseWizard):
         vbox_create_new.setContentsMargins(0, 0, 0, 0)
         vbox.addWidget(widget_create_new)
 
-        self.set_layout(vbox, title=_('Electrum-BIT wallet'))
+        self.set_layout(vbox, title=_('Electrum-WAF wallet'))
 
         temp_storage = None  # type: Optional[WalletStorage]
         wallet_folder = os.path.dirname(path)
@@ -364,7 +364,7 @@ class InstallWizard(QDialog, MessageBoxMixin, BaseWizard):
         path = storage.path
         if db.requires_split():
             self.hide()
-            msg = _("The wallet '{}' contains multiple accounts, which are no longer supported since Electrum-BIT 2.7.\n\n"
+            msg = _("The wallet '{}' contains multiple accounts, which are no longer supported since Electrum-WAF 2.7.\n\n"
                     "Do you want to split your wallet into multiple files?").format(path)
             if not self.question(msg):
                 return
@@ -730,10 +730,10 @@ class InstallWizard(QDialog, MessageBoxMixin, BaseWizard):
         return None
 
     def init_network(self, network: 'Network'):
-        message = _("Electrum-BIT communicates with remote servers to get "
+        message = _("Electrum-WAF communicates with remote servers to get "
                   "information about your transactions and addresses. The "
                   "servers all fulfill the same purpose only differing in "
-                  "hardware. In most cases you simply want to let Electrum-BIT "
+                  "hardware. In most cases you simply want to let Electrum-WAF "
                   "pick one at random.  However if you prefer feel free to "
                   "select a server manually.")
         choices = [_("Auto connect"), _("Select server manually")]
