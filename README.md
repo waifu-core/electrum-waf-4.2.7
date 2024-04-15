@@ -2,7 +2,7 @@
 
 ```
 cd /opt
-wget https://github.com/waifu-core/electrum-waifu/releases/download/electrum-waifu/electrum-waifu.tar.gz
+wget https://github.com/waifu-core/electrum-waf-4.2.7/archive/refs/heads/main.zip
 tar -xvf electrum-waifu.tar.gz
 ```
 
