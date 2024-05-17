@@ -1,6 +1,6 @@
 ```
 requires older python3 aiorpcx == 0.18.7 and libsecp256k1.so.0 or wont work
-git clone https://github.com/bitnet-io/electrum-bitnet-4.2.7
+git clone https://github.com/waifu-core/electrum-waf-4.2.7
 cd electrum-bitnet-4.2.7
 python3 -m pip install .
 python3 -m pip install aiorpcx==0.18.7 cryptography requests PyQt5 protobuf==3.20.0
@@ -8,7 +8,7 @@ python3 -m pip install aiorpcx==0.18.7 cryptography requests PyQt5 protobuf==3.2
 ./contrib/make_libsecp256k1.sh
 python3 run_electrum
 build for windows setup.exe, portable.exe (wine builder) requires docker
-git clone https://github.com/bitnet-io/electrum-bitnet-4.2.7
+git clone https://github.com/waifu-core/electrum-waf-4.2.7
 cd electrum-bitnet-4.2.7
 
 cd contrib/build-wine
@@ -19,7 +19,7 @@ cd /opt/wine64/drive_c/electrum
 ./make_win.sh
 Linux AppImage (requires docker)
 
-git clone https://github.com/bitnet-io/electrum-bitnet-4.2.7
+git clone https://github.com/waifu-core/electrum-waf-4.2.7
 cd electrum-bitnet-4.2.7
 
 cd contrib/build-linux-appimage
@@ -29,7 +29,7 @@ cd ../../../
 
 ./make_appimage.sh 
 building for android (requires docker + java11 + nodejs + apksigner to sign the debug.apk)
-git clone https://github.com/bitnet-io/electrum-bitnet-4.2.7
+git clone https://github.com/waifu-core/electrum-waf-4.2.7
 cd electrum-bitnet-4.2.7
 
 sh android-builder-docker.sh
@@ -69,7 +69,7 @@ script will output a signed apk
 Bitnet-4.2.7.0-arm64-v8a-signed.apk
 
 macOS python3.10 , xcode command line tools)
-git clone https://github.com/bitnet-io/electrum-bitnet-4.2.7
+git clone https://github.com/waifu-core/electrum-waf-4.2.7
 cd electrum-bitnet-4.2.7
 
 cd electrum-bitnet
